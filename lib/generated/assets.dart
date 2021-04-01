@@ -2,6 +2,6 @@
 class Assets {
   Assets._();
 
-  static const String assetsTashbeeh2 = 'assets/tashbeeh2.jpg';
+  static const String assetsTasbheeh = 'assets/tasbheeh.jpg';
 
 }

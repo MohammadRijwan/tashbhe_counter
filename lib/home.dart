@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tashbhe_counter/generated/assets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
@@ -30,8 +31,7 @@ class _HomeState extends State<Home> {
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(
-                  'https://images.unsplash.com/photo-1519818187420-8e49de7adeef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80'),
+              image:AssetImage('assets/tasbheeh.jpg'),
               fit: BoxFit.fill,
             ),
           ),
