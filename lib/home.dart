@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,6 +9,17 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   TextEditingController fieldController = TextEditingController();
   int value = 0;
+
+  launchInBrowser(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +30,9 @@ class _HomeState extends State<Home> {
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/tashbeeh.jpg'
-                  ),
-              fit: BoxFit.cover,
+              image: NetworkImage(
+                  'https://images.unsplash.com/photo-1519818187420-8e49de7adeef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=564&q=80'),
+              fit: BoxFit.fill,
             ),
           ),
           child: Padding(
@@ -30,10 +42,9 @@ class _HomeState extends State<Home> {
                 Text(
                   'Tashbeeh Counter',
                   style: TextStyle(
-                    fontSize: 35.0,
-                    color: Color(0xff78A200),
-                    fontWeight: FontWeight.bold
-                  ),
+                      fontSize: 35.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -76,7 +87,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(
-                  height: 100.0,
+                  height: 50.0,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -94,13 +105,23 @@ class _HomeState extends State<Home> {
                       child: Center(
                         child: Text(
                           'Tasbheeh',
-                          style:
-                              TextStyle(color: Colors.white, fontSize: 30.0),
+                          style: TextStyle(color: Colors.white, fontSize: 30.0),
                         ),
                       ),
                     ),
                   ),
                 ),
+                GestureDetector(
+                    onTap:()=> launchInBrowser('https://www.instagram.com/ridz.creations/'),
+                    child: RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        children: <TextSpan>[
+                          TextSpan(text: 'This app build by: Mohammad Follow me on\n', ),
+                          TextSpan(text: 'Insta @Ridz.Creations!',style: TextStyle(fontWeight: FontWeight.bold, color: Colors.yellowAccent)),
+                        ],
+                      ),
+                    ),),
               ],
             ),
           ),
@@ -109,3 +130,4 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
