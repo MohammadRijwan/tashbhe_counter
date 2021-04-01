@@ -1,6 +1,6 @@
-# tashbhe_counter
+# tashbheeh_counter
 
-this app build for count the tasbhe.
+this app build for count the tasbheeh.
 
 ## Getting Started
 
