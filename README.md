@@ -6,8 +6,6 @@ this app build for count the tasbheeh.
 
 This project is a starting point for a Flutter application.
 
-https://github.com/MohammadRijwan/tashbhe_counter/blob/master/assets/tashbeeh2.jpg
-
 
 A few resources to get you started if this is your first Flutter project:
 
